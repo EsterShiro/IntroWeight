@@ -1,13 +1,10 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { SliderBox } from 'react-native-image-slider-box';
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
-const Drawer  = createDrawerNavigator();
-
-const Home = () => {
+// Home Screen พร้อม SliderBox
+function HomeScreen() {
     const images = [
         require('./assets/im1.jpg'),
         require('./assets/im2.jpg'),
@@ -16,10 +13,8 @@ const Home = () => {
         require('./assets/im5.jpg'),
     ];
 
-
-
     return (
-        <View style={styles.container}>
+        <View style={styles.screen}>
             <SliderBox
                 images={images}
                 sliderBoxHeight={200}
@@ -28,22 +23,30 @@ const Home = () => {
                 paginationBoxVerticalPadding={20}
                 autoplay
                 circleLoop
-                ImageComponentStyle={styles.sliderImage} // Apply style to the images
-            />
+                ImageComponentStyle={styles.sliderImage}
+            />           
         </View>
     );
-};
+}
 
+// Profile Screen
+
+export default HomeScreen;
+
+// Styles
 const styles = StyleSheet.create({
-    container: {
-        
+    screen: {
+        flex: 1,
+        marginTop:100,
+    },
+    text: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginTop: 10,
     },
     sliderImage: {
-        borderRadius: 20, // Apply border radius here
-        width: '96%', // Adjust as needed, prevents images from stretching to full width
-        marginTop:100,
-        alignSelf: 'center', //center the image
+        borderRadius: 20,
+        width: '96%',
+        alignSelf: 'center',
     },
 });
-
-export default Home;
