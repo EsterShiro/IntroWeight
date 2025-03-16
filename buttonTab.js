@@ -32,21 +32,18 @@ const App = () => {
 
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarOptions:{
-            style:{
-              backgroundColor:'black',
-            },
+          
             tabBarActiveTintColor: 'tomato',
             tabBarInactiveTintColor: 'gray',
-          }
+          
           
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Calendar" component={CalendarScreen} />
-        <Tab.Screen name="Progress" component={ProgressScreen} />
-        <Tab.Screen name="Notice" component={NoticeScreen} />
-        <Tab.Screen name="Setting" component={SettingScreen} />
+        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
+        <Tab.Screen name="Calendar" component={CalendarScreen} options={{headerShown: false}}/>
+        <Tab.Screen name="Progress" component={ProgressScreen} options={{headerShown: false}}/>
+        <Tab.Screen name="Notice" component={NoticeScreen}options={{headerShown: false}}/>
+        <Tab.Screen name="Setting" component={SettingScreen} options={{headerShown: false}}/>
       </Tab.Navigator>
     </NavigationContainer>
   );

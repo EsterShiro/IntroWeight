@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { useState } from 'react';
+
 
 const ProgressScreen = () => {
+  
   return (
     <View style={styles.container}>
       <Text>หน้า Progress</Text>
