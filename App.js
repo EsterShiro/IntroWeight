@@ -1,18 +1,31 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { useState } from 'react';
 import HomeScreen from './Screen/HomeScreen';
 import GenderScreen from './Screen/GenderScreen';
-
-const Stack = createStackNavigator();
+import AgeScreen from './Screen/Age';
+import BirthdayScreen from './Screen/BirthdayScreen';
 
 export default function App() {
+  const [currentScreen, setCurrentScreen] = useState('Home');
+
+  const renderScreen = () => {
+    switch (currentScreen) {
+      case 'Home':
+        return <HomeScreen navigate={setCurrentScreen} />;
+      case 'Gender':
+        return <GenderScreen navigate={setCurrentScreen} />;
+      case 'Age':
+        return <AgeScreen navigate={setCurrentScreen} />;
+      case 'Birthday':
+        return <BirthdayScreen navigate={setCurrentScreen} />;
+      default:
+        return <HomeScreen navigate={setCurrentScreen} />;
+    }
+  };
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Gender" component={GenderScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      {renderScreen()}
+    </>
   );
 }

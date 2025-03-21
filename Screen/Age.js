@@ -1,39 +1,51 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function GenderScreen({ navigate }) {
-  const [selectedGender, setSelectedGender] = useState(null);
+export default function AgeScreen({ navigate }) {
+  const [selectedAge, setSelectedAge] = useState(null);
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigate('Home')}>
+        <TouchableOpacity onPress={() => navigate('Gender')}>
           <Text style={styles.backButton}>{'<'}</Text>
         </TouchableOpacity>
         <View style={styles.progressBar}>
           <View style={styles.progress} />
         </View>
       </View>
-      <Text style={styles.title}>What's your Gender?</Text>
+      <Text style={styles.title}>How old are you?</Text>
       <TouchableOpacity
-        style={[styles.optionButton, selectedGender === 'Male' && styles.selectedButton]}
-        onPress={() => setSelectedGender('Male')}
+        style={[styles.optionButton, selectedAge === 'Under 18' && styles.selectedButton]}
+        onPress={() => setSelectedAge('Under 18')}
       >
-        <Text style={styles.optionText}>Male</Text>
+        <Text style={styles.optionText}>Under 18</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[styles.optionButton, selectedGender === 'Female' && styles.selectedButton]}
-        onPress={() => setSelectedGender('Female')}
+        style={[styles.optionButton, selectedAge === '18-24' && styles.selectedButton]}
+        onPress={() => setSelectedAge('18-24')}
       >
-        <Text style={styles.optionText}>Female</Text>
+        <Text style={styles.optionText}>18-24</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[styles.optionButton, selectedGender === 'Unspecified' && styles.selectedButton]}
-        onPress={() => setSelectedGender('Unspecified')}
+        style={[styles.optionButton, selectedAge === '25-34' && styles.selectedButton]}
+        onPress={() => setSelectedAge('25-34')}
       >
-        <Text style={styles.optionText}>Unspecified</Text>
+        <Text style={styles.optionText}>25-34</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.nextButton} onPress={() => navigate('Age')}>
+      <TouchableOpacity
+        style={[styles.optionButton, selectedAge === '35-44' && styles.selectedButton]}
+        onPress={() => setSelectedAge('35-44')}
+      >
+        <Text style={styles.optionText}>35-44</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.optionButton, selectedAge === '45+' && styles.selectedButton]}
+        onPress={() => setSelectedAge('45+')}
+      >
+        <Text style={styles.optionText}>45+</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.nextButton} onPress={() => navigate('Birthday')}>
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
     </View>
@@ -74,7 +86,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   progress: {
-    width: '33%',
+    width: '66%',
     height: '100%',
     backgroundColor: 'green',
   },
