@@ -1,8 +1,5 @@
 import React from 'react';
 import {Platform, View, StyleSheet} from 'react-native';
-
-
-import Home from './home';
 import ButtomTab from './buttonTab'
 
 
