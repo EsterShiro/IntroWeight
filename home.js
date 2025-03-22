@@ -1,9 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Animated } from 'react-native';
 import { SliderBox } from 'react-native-image-slider-box';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome6';
+
 
 const image = require('./assets/RB-remove.png');
+
+
 
 const workoutImages = [
     require('./assets/fullbody.jpg'),
@@ -46,7 +49,7 @@ function HomeScreen() {
         <View style={styles.screen}>
             <Animated.View style={{ transform: [{ translateY: headerTranslateY }] }}>
                 <Image style={styles.image} source={image} />
-                <Ionicons style={styles.icons} name="flame" size={33} />
+                <Icon style={styles.icons}name="fire" size={30} color="#ff4000"/>
                 <SliderBox
                     images={images}
                     sliderBoxHeight={200}
